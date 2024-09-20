@@ -1,48 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Photo Gallery</title>
+    <title>Trang Web Đơn Giản</title>
     <style>
-        /* Add your CSS here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            margin-top: 10px;
+        }
     </style>
 </head>
-<body onload="initGallery()">
-
-    <div id="gallery">
-        <figure>
-            <img src="E:\web\thien-nhien-la-gi-1.jpg" alt="Description of image 1">
-            <!-- Add more images here -->
-        </figure>
-        <div id="largeImage" aria-live="polite">Hover over an image to see details.</div>
-    </div>
-
-    <script>
-        function initGallery() {
-            const images = document.querySelectorAll('#gallery img');
-            images.forEach((img, index) => {
-                img.setAttribute('tabindex', '0');
-                img.addEventListener('mouseover', updateLargeImage);
-                img.addEventListener('mouseleave', resetLargeImage);
-                img.addEventListener('focus', updateLargeImage);
-                img.addEventListener('blur', resetLargeImage);
-            });
-            console.log('Gallery initialized');
-        }
-
-        function updateLargeImage(event) {
-            const largeImage = document.getElementById('largeImage');
-            largeImage.textContent = event.target.alt;
-            // Update background image logic
-        }
-
-        function resetLargeImage() {
-            const largeImage = document.getElementById('largeImage');
-            largeImage.textContent = 'Hover over an image to see details.';
-            // Reset background image logic
-        }
-    </script>
-
+<body>
+    <header>
+        <h1>Chào Mừng Đến Với Trang Web Của Tôi</h1>
+    </header>
+    <main>
+        <h2>Giới Thiệu</h2>
+        <p>Đây là một trang web HTML đơn giản. Bạn có thể thêm nội dung và tùy chỉnh theo ý thích.</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Trang Web Đơn Giản</p>
+    </footer>
 </body>
 </html>
