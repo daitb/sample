@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Photo Gallery</title>
+    <style>
+        /* Add your CSS here */
+    </style>
+</head>
+<body onload="initGallery()">
+
+    <div id="gallery">
+        <figure>
+            <img src="E:\web\thien-nhien-la-gi-1.jpg" alt="Description of image 1">
+            <!-- Add more images here -->
+        </figure>
+        <div id="largeImage" aria-live="polite">Hover over an image to see details.</div>
+    </div>
+
+    <script>
+        function initGallery() {
+            const images = document.querySelectorAll('#gallery img');
+            images.forEach((img, index) => {
+                img.setAttribute('tabindex', '0');
+                img.addEventListener('mouseover', updateLargeImage);
+                img.addEventListener('mouseleave', resetLargeImage);
+                img.addEventListener('focus', updateLargeImage);
+                img.addEventListener('blur', resetLargeImage);
+            });
+            console.log('Gallery initialized');
+        }
+
+        function updateLargeImage(event) {
+            const largeImage = document.getElementById('largeImage');
+            largeImage.textContent = event.target.alt;
+            // Update background image logic
+        }
+
+        function resetLargeImage() {
+            const largeImage = document.getElementById('largeImage');
+            largeImage.textContent = 'Hover over an image to see details.';
+            // Reset background image logic
+        }
+    </script>
+
+</body>
+</html>
